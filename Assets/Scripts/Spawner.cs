@@ -31,11 +31,13 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator Generate()
     {
+        WaitForSeconds pause = new WaitForSeconds(_delay);
+
         while (true)
         {
             _activeSpawner = GetSpawner();
             Instantiate(_enemyPrefab, _activeSpawner);
-            yield return new WaitForSeconds(_delay);
+            yield return pause;
         }
     }
 }
